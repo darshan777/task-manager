@@ -32,9 +32,12 @@ public class User {
 	@NotBlank 
 	private String userEmail;
 	
-	@NotBlank
+	@NotBlank 
 	private String userRole;
 	
+
+	
+
 	@OneToMany(mappedBy="user")
 	private List<Issue> issues = new ArrayList<Issue>();
 	
@@ -44,6 +47,14 @@ public class User {
 
 	public User() {
 		super();
+	}
+	
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
 	}
 
 	public int getUserId() {

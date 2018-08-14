@@ -27,18 +27,21 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
+	//Get all Users
     @GetMapping("/users")
     public List<User> getAllUser() {
         return userRepository.findAll();
     }
     
-    @RequestMapping(value ="/notes", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    //Create a user
+    @RequestMapping(value ="/users", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public User createUser(@Valid @RequestBody User user) {
     	System.out.println("USer Created :"+ user.getUserId());
         return userRepository.save(user);
     }
     
     
+    //Get a specific user
     @GetMapping("/users/{id}")
     public User getNoteById(@PathVariable(value = "id") Integer userId) {
     	Optional<User> user = userRepository.findById(userId);
@@ -51,7 +54,7 @@ public class UserController {
                 
     }
     
-    
+    //Update a specific user
     @PutMapping("/users/{id}")
     public User updateNote(@PathVariable(value = "id") Integer userId,
                                             @Valid @RequestBody User UserDetails) {
@@ -69,6 +72,7 @@ public class UserController {
     	}
 }
     
+    //Delete a user
     @DeleteMapping("/users/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable(value = "id") Integer userId) {
     	Optional<User> user = userRepository.findById(userId);

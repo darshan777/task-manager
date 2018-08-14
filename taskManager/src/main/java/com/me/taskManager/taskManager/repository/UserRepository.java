@@ -6,4 +6,5 @@ import com.me.taskManager.taskManager.pojo.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
+	
 }
