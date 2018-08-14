@@ -43,7 +43,7 @@ public class UserController {
     
     //Get a specific user
     @GetMapping("/users/{id}")
-    public User getNoteById(@PathVariable(value = "id") Integer userId) {
+    public User getUserById(@PathVariable(value = "id") Integer userId) {
     	Optional<User> user = userRepository.findById(userId);
     	if (user.isPresent()) {
     	    return user.get();
@@ -56,7 +56,7 @@ public class UserController {
     
     //Update a specific user
     @PutMapping("/users/{id}")
-    public User updateNote(@PathVariable(value = "id") Integer userId,
+    public User updateUser(@PathVariable(value = "id") Integer userId,
                                             @Valid @RequestBody User UserDetails) {
     	
     	Optional<User> user = userRepository.findById(userId);
