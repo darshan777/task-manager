@@ -32,7 +32,7 @@ public class User {
 	@NotBlank 
 	private String userEmail;
 	
-	@NotBlank 
+	 
 	private String userRole;
 	
 
