@@ -39,11 +39,15 @@ public class User {
 	
 
 	@OneToMany(mappedBy="user")
-	private List<Issue> issues = new ArrayList<Issue>();
+	public List<Issue> issues = new ArrayList<Issue>();
 	
 	
 	
-	
+	public List<Issue> add(Issue issue){
+		issues.add(issue);
+		return issues;
+		
+	}
 
 	public User() {
 		super();
@@ -89,13 +93,7 @@ public class User {
 		this.userEmail = userEmail;
 	}
 
-	public List<Issue> getIssues() {
-		return issues;
-	}
-
-	public void setIssues(List<Issue> issues) {
-		this.issues = issues;
-	}
+	
 	
 	
 	

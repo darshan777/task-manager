@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "issues")
 @EntityListeners(AuditingEntityListener.class)
@@ -22,19 +24,20 @@ public class Issue {
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int issueId;
 	 
-	@NotBlank
+	@NotNull
 	private String issueName;
 	
-	@NotBlank
+	
 	private String Priority;
 	
-	@NotBlank
+	@NotNull
 	private int issueStatus;
 	
 	@ManyToOne
     @JoinColumn(name="projectId", nullable=true)
 	private Project project;
 	
+	@JsonIgnore
 	@ManyToOne
     @JoinColumn(name="userId", nullable=false)
 	private User user;
@@ -47,6 +50,12 @@ public class Issue {
 	public Project getProject() {
 		return project;
 	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public void setProject(Project project) {
 		this.project = project;
 	}
@@ -54,7 +63,7 @@ public class Issue {
 		super();
 		
 		this.issueName = issueName;
-		Priority = priority;
+		this.Priority = priority;
 		this.issueStatus = issueStatus;
 	}
 	public Issue() {

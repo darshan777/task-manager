@@ -67,6 +67,7 @@ public class UserController {
     		user.get().setUserName(UserDetails.getUserName());
     		user.get().setUserPassword(UserDetails.getUserPassword());
     		user.get().setUserEmail(UserDetails.getUserEmail());
+    		
     		return user.get();
     	}
     	else {
