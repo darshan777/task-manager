@@ -33,7 +33,10 @@ export function getAuthServiceConfigs() {
 }
 
 const appRoutes: Routes = [
-{ path: '', component: DashboardComponent }
+
+{ path: '', component: AuthenticationComponent },
+{ path: 'createUser', component: CreateUserComponent },
+{ path: 'sidemenu', component: SideMenuComponent }
 ];
 
 @NgModule({
