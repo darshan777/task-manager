@@ -17,6 +17,8 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angular5-social-login';
+import { UserissueComponent } from './userissue/userissue.component';
+import { CreateissueComponent } from './createissue/createissue.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -36,7 +38,9 @@ const appRoutes: Routes = [
 
 { path: '', component: AuthenticationComponent },
 { path: 'createUser', component: CreateUserComponent },
-{ path: 'sidemenu', component: SideMenuComponent }
+{ path: 'sidemenu', component: SideMenuComponent , children:[
+  { path: 'userissue', component: UserissueComponent}
+]}
 ];
 
 @NgModule({
@@ -47,7 +51,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     SideMenuComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserissueComponent,
+    CreateissueComponent
   ],
   imports: [
     BrowserModule,

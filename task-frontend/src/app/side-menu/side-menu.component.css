@@ -23,6 +23,7 @@ body {
    */
   .navbar-fixed-top {
     border: 0;
+    font-size: 20px;
   }
   
   /*
@@ -54,10 +55,15 @@ body {
     margin-right: -21px; /* 20px padding + 1px border */
     margin-bottom: 20px;
     margin-left: -20px;
+    
   }
   .nav-sidebar > li > a {
     padding-right: 20px;
     padding-left: 20px;
+    font-size: 20px !important;
+  }
+  .nav-sidebar > li {
+    font-size: 20px !important;
   }
   .nav-sidebar > .active > a,
   .nav-sidebar > .active > a:hover,
