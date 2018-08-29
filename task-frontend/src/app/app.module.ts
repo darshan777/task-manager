@@ -19,13 +19,18 @@ import {
 } from 'angular5-social-login';
 import { UserissueComponent } from './userissue/userissue.component';
 import { CreateissueComponent } from './createissue/createissue.component';
+import { SelectProjectComponentComponent } from './select-project-component/select-project-component.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { ReportComponent } from './report/report.component';
+import { TeamComponent } from './team/team.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MessageComponent } from './message/message.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
       [
-       
-        {
+       {
           id: GoogleLoginProvider.PROVIDER_ID,
 	      provider: new GoogleLoginProvider('112882521231-nsjv8r7gi5aptr3evd8sihcmbqj0u5an.apps.googleusercontent.com')
         }
@@ -38,8 +43,17 @@ const appRoutes: Routes = [
 
 { path: '', component: AuthenticationComponent },
 { path: 'createUser', component: CreateUserComponent },
-{ path: 'sidemenu', component: SideMenuComponent , children:[
-  { path: 'userissue', component: UserissueComponent}
+{ path: 'projects', component: SelectProjectComponentComponent },
+{ path: 'sidemenu', component: SideMenuComponent , children: [
+  { path: 'userissue', component: UserissueComponent},
+  { path: 'createissue', component: CreateissueComponent  },
+  { path: 'task', component: CreateissueComponent  },
+  { path: 'messages', component: MessageComponent },
+  { path: 'reports', component: ReportComponent },
+  { path: 'team', component: TeamComponent },
+  { path: 'profile', component: ProfileComponent }
+
+
 ]}
 ];
 
@@ -53,7 +67,13 @@ const appRoutes: Routes = [
     SideMenuComponent,
     DashboardComponent,
     UserissueComponent,
-    CreateissueComponent
+    CreateissueComponent,
+    SelectProjectComponentComponent,
+    TasksComponent,
+    ReportComponent,
+    TeamComponent,
+    ProfileComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -73,3 +93,7 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function newFunction(): string {
+  return 'profile';
+}
+

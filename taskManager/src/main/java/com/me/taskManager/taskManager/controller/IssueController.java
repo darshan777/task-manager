@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.me.taskManager.taskManager.repository.IssueRepository;
 import com.me.taskManager.taskManager.repository.UserRepository;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/issue")
 public class IssueController {
 

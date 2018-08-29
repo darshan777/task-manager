@@ -8,8 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -27,11 +28,22 @@ public class Issue {
 	@NotNull
 	private String issueName;
 	
+	@NotNull
+	private String issueDescription;
+	
+	
+	public String getIssueDescription() {
+		return issueDescription;
+	}
+	public void setIssueDescription(String issueDescription) {
+		this.issueDescription = issueDescription;
+	}
+	
 	
 	private String Priority;
 	
 	@NotNull
-	private int issueStatus;
+	private String issueStatus;
 	
 	@ManyToOne
     @JoinColumn(name="projectId", nullable=true)
@@ -59,7 +71,7 @@ public class Issue {
 	public void setProject(Project project) {
 		this.project = project;
 	}
-	public Issue( String issueName, String priority, int issueStatus) {
+	public Issue( String issueName, String priority, String issueStatus) {
 		super();
 		
 		this.issueName = issueName;
@@ -87,10 +99,10 @@ public class Issue {
 	public void setPriority(String priority) {
 		Priority = priority;
 	}
-	public int getIssueStatus() {
+	public String getIssueStatus() {
 		return issueStatus;
 	}
-	public void setIssueStatus(int issueStatus) {
+	public void setIssueStatus(String issueStatus) {
 		this.issueStatus = issueStatus;
 	}
 	

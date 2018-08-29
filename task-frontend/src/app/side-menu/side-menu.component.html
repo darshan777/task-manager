@@ -33,17 +33,17 @@
         <ul class="nav nav-sidebar">
             <li><h3> Welcome {{currentUser.userName}}</h3></li><br>
           <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Messages</a></li>
+          <li><a [routerLink]="['/sidemenu/messages']">Messages</a></li>
           <li><a [routerLink]="['/sidemenu/userissue']">Issues</a></li>
-          <li><a href="#">Tasks</a></li>
-          <li><a href="#">Reports</a></li>
+          <li><a [routerLink]="['/sidemenu/task']">Tasks</a></li>
+          <li><a [routerLink]="['/sidemenu/reports']">Reports</a></li>
         </ul>
         <ul class="nav nav-sidebar">
-          <li><a href="">Create Issue</a></li>
+          <li><a [routerLink]="['/sidemenu/createissue']">Create Issue</a></li>
           <li><a href="">Create Task</a></li>
-          <li><a href="">Projects</a></li>
-          <li><a href="">Team</a></li>
-          <li><a href="">Profile</a></li>
+          <li><a [routerLink]="['/projects']">Projects</a></li>
+          <li><a [routerLink]="['/sidemenu/team']">Team</a></li>
+          <li><a [routerLink]="['/sidemenu/profile']">Profile</a></li>
         </ul>
         
       </div>
