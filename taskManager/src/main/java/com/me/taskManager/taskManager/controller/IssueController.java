@@ -37,15 +37,19 @@ public class IssueController {
 	
 	@GetMapping("/issues/{id}")
 	public List<Issue> getAllIssues(@PathVariable(value = "id") Integer userId, Pageable pageable) {
+		System.out.println("Reached Server" + userId);
+		
 		List<Issue> issueList = new ArrayList<Issue>();
 		List<Issue> issue = issueRepository.findAll();
 		for(Issue i: issue) {
 			int user_id = i.getUser().getUserId();
 			if(user_id == userId) {
 				issueList.add(i);
+				System.out.println(i);
 			}
 			
 		}
+		
 		return issueList;
 		
 	}
@@ -62,7 +66,8 @@ public class IssueController {
     		i.setIssueId(issue.getIssueId());
     		i.setIssueName(issue.getIssueName());
     		i.setIssueStatus(issue.getIssueStatus());
-    		i.setPriority(issue.getPriority());
+    		i.setIssueDescription(issue.getIssueDescription());
+    		i.setIssuePriority(issue.getIssuePriority());
     		i.setUser(u.get());
     		issueRepository.save(i);
     		
@@ -95,7 +100,8 @@ public class IssueController {
     	if (issue.isPresent()) {
     		issue.get().setIssueId(issueDetails.getIssueId());
     		issue.get().setIssueName(issueDetails.getIssueName());
-    		issue.get().setPriority(issueDetails.getPriority());
+    		issue.get().setIssueDescription(issueDetails.getIssueDescription());
+    		issue.get().setIssuePriority(issueDetails.getIssuePriority());
     		issue.get().setIssueStatus(issueDetails.getIssueStatus());
     		return issue.get();
     	}

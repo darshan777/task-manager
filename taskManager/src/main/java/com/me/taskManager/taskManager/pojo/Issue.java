@@ -39,8 +39,8 @@ public class Issue {
 		this.issueDescription = issueDescription;
 	}
 	
-	
-	private String Priority;
+	@NotNull
+	private String issuePriority;
 	
 	@NotNull
 	private String issueStatus;
@@ -75,7 +75,7 @@ public class Issue {
 		super();
 		
 		this.issueName = issueName;
-		this.Priority = priority;
+		this.issuePriority = priority;
 		this.issueStatus = issueStatus;
 	}
 	public Issue() {
@@ -93,11 +93,12 @@ public class Issue {
 	public void setIssueName(String issueName) {
 		this.issueName = issueName;
 	}
-	public String getPriority() {
-		return Priority;
+	
+	public String getIssuePriority() {
+		return issuePriority;
 	}
-	public void setPriority(String priority) {
-		Priority = priority;
+	public void setIssuePriority(String issuePriority) {
+		this.issuePriority = issuePriority;
 	}
 	public String getIssueStatus() {
 		return issueStatus;

@@ -25,6 +25,8 @@ import { ReportComponent } from './report/report.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MessageComponent } from './message/message.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { UpdateIssueComponent } from './update-issue/update-issue.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
   { path: 'messages', component: MessageComponent },
   { path: 'reports', component: ReportComponent },
   { path: 'team', component: TeamComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'updateIssue/:id', component: UpdateIssueComponent },
 
 
 ]}
@@ -73,7 +76,9 @@ const appRoutes: Routes = [
     ReportComponent,
     TeamComponent,
     ProfileComponent,
-    MessageComponent
+    MessageComponent,
+    CreateProjectComponent,
+    UpdateIssueComponent
   ],
   imports: [
     BrowserModule,

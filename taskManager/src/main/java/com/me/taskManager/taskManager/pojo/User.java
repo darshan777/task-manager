@@ -1,13 +1,19 @@
 package com.me.taskManager.taskManager.pojo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
+import java.util.Set;
+import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -41,8 +47,32 @@ public class User {
 	@OneToMany(mappedBy="user")
 	public List<Issue> issues = new ArrayList<Issue>();
 	
+	@ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+        name = "user_Projects", 
+        joinColumns = { @JoinColumn(name = "user_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "project_id") }
+    )
+    Set<Project> projects = new HashSet<>();
 	
 	
+	
+	public List<Issue> getIssues() {
+		return issues;
+	}
+
+	public void setIssues(List<Issue> issues) {
+		this.issues = issues;
+	}
+
+	public Set<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
+	}
+
 	public List<Issue> add(Issue issue){
 		issues.add(issue);
 		return issues;

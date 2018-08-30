@@ -27,8 +27,6 @@ export class AuthenticationComponent implements OnInit {
       'userPassword': new FormControl('')
     });
     this.getAllUsers();
-    
-
   }
   getAllUsers() {
     this.userService.getAllUsers().subscribe(
@@ -52,12 +50,12 @@ export class AuthenticationComponent implements OnInit {
        }
     });
     if (counterr === 'true') {
-      this.router.navigate(['/sidemenu']);
+      this.router.navigate(['/projects']);
     }
   }
 
   test() {
-    this.router.navigate(['/sidemenu']);
+    this.router.navigate(['/projects']);
   }
 
 }

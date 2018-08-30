@@ -15,7 +15,8 @@ export class UserIssueService {
     return this.http.post('http://localhost:8080/issue/issues/' + userid, issue);
  }
 
- getAllIssues() {
-   return this.http.get('http://localhost:8080/issue/issues/').map((response: Response) => response.json());
+ getAllIssues(userId: number) {
+  console.log('Reached Issue Service ' + userId);
+   return this.http.get('http://localhost:8080/issue/issues/' + userId ).map((response: Response) => response.json());
  }
 }

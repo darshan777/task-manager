@@ -19,7 +19,7 @@ export class CreateissueComponent implements OnInit {
     this.CreateIssue = new FormGroup({
         'issueName': new FormControl(''),
         'issueDescription': new FormControl(''),
-        'Priority': new FormControl('Low'),
+        'issuePriority': new FormControl('Low'),
         'issueStatus': new FormControl('New')
 
     });

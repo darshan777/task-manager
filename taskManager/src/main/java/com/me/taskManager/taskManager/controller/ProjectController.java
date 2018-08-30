@@ -37,10 +37,12 @@ public class ProjectController {
   //Create a Project
     @RequestMapping(value ="/projects", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Project createUser(@Valid @RequestBody Project project) {
+    	Project pr = new Project();
+    	
     	return projectRepository.save(project);
     }
     
-    //Get a specific user
+    //Get a specific project
     @GetMapping("/projects/{id}")
     public Project getUserById(@PathVariable(value = "id") Integer projectId) {
     	Optional<Project> project = projectRepository.findById(projectId);
