@@ -19,4 +19,8 @@ export class UserIssueService {
   console.log('Reached Issue Service ' + userId);
    return this.http.get('http://localhost:8080/issue/issues/' + userId ).map((response: Response) => response.json());
  }
+
+ getSpecificIssues(issueid: number) {
+  return this.http.get('http://localhost:8080/issue/issues/specificIssue/' + issueid ).map((response: Response) => response.json());
+ }
 }

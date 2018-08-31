@@ -79,7 +79,7 @@ public class IssueController {
     }
     
   //Get a specific user
-  /*  @GetMapping("/issues/{id}")
+    @GetMapping("/issues/specificIssue/{id}")
     public Issue getIssueById(@PathVariable(value = "id") Integer issueId) {
     	Optional<Issue> issue = issueRepository.findById(issueId);
     	if (issue.isPresent()) {
@@ -89,7 +89,7 @@ public class IssueController {
     	}
          
                 
-    }*/
+    }
     
     //Update a specific Issue
     @PutMapping("/issues/{id}")
